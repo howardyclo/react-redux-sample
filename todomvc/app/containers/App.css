@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400');
+
+html,body { 
+	margin:0; padding:0; height: 100%;
+}
+
+body { 
+	background: linear-gradient(#fc6c85, #fff6e4) fixed;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.title {
+	margin-top: 50px;
+	text-align: center;
+	font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+	font-weight: 400;
+	font-size: 3.5rem;
+	color: rgba(0,0,0,0.2);
+}
+
+.container {
+	width: 500px;
+	margin: auto;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	background-color: white;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  	transition: all 0.2s ease-in-out;
+}
+
+.container:hover {
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 8px rgba(0,0,0,0.24);
+}

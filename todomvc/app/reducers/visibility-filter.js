@@ -21,14 +21,3 @@ export default function visibilityFilter(state = Filter.VisibilityFilter.SHOW_AL
 		return state;
 	}
 }
-
-//testSetVisibilityFilter();
-
-function testSetVisibilityFilter() {
-
-	const oldState = Filter.VisibilityFilter.SHOW_ALL_TODOS;
-	const newState = visibilityFilter(oldState, Filter.setVisibilityFilter(Filter.VisibilityFilter.SHOW_COMPLETED_TODOS));
-
-	console.log('old state: ', oldState);	
-	console.log('new state: ', newState);
-}

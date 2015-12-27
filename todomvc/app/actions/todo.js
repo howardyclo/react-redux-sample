@@ -39,12 +39,6 @@ export function toggleTodo(todoID) {
 	}
 }
 
-export function completeAllTodos() {
-	return {
-		type: Action.COMPLETE_ALL_TODOS,
-	}
-}
-
 export function deleteTodo(todoID) {
 	return { 
 		type: Action.DELETE_TODO,

@@ -2,6 +2,7 @@
 
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var config = {
   entry: getEntrySources([
@@ -15,17 +16,22 @@ var config = {
     loaders: [
       { 
         test: /\.jsx?$/, 
-        loader: 'babel', 
+        loaders: ['babel-loader'], 
         include: path.resolve(__dirname, 'app'),
         exclude: path.resolve(__dirname, 'node_modules'),
         plugins: ['object-assign']
       },
       { 
         test: /\.css$/, 
-        loader: "style!css" 
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]') 
       }
     ]
-  }
+  },
+  plugins: [
+    new ExtractTextPlugin('style.css', {
+        allChunks: true
+    })
+  ]
 }
 
 /* We won't deploy our webpack dev server in production */

@@ -52,11 +52,6 @@ export default function todo(state = [], action) {
 				: Object.assign({}, todo, { completed: !todo.completed })
 		)
 
-	case Todo.Action.COMPLETE_ALL_TODOS:
-		return state.map(todo => 
-			Object.assign({}, todo, { completed: true })
-		)
-
 	case Todo.Action.DELETE_TODO:
 		return state.filter(todo => 
 			(todo.id !== action.payload.todoID)
@@ -71,95 +66,3 @@ export default function todo(state = [], action) {
 		return state;
 	}
 }
-
-//testAddTodo();
-
-function testAddTodo() {
-
-	const oldState = [
-		{ id: 1, text: 'todo 1', completed: false }
-	]
-
-	const newState = todo(oldState, Todo.addTodo('todo 2'));
-
-	console.log('old state: ', oldState);	
-	console.log('new state: ', newState);
-}
-
-//testEditTodo();
-
-function testEditTodo() {
-
-	const oldState = [
-		{ id: 1, text: 'todo 1', completed: false },
-		{ id: 2, text: 'todo 2', completed: false },
-	]
-
-	const newState = todo(oldState, Todo.editTodo(2, 'todo edited'));
-
-	console.log('old state: ', oldState);	
-	console.log('new state: ', newState);
-}
-
-//testToggleTodo();
-
-function testToggleTodo() {
-
-	const oldState = [
-		{ id: 1, text: 'todo 1', completed: false },
-		{ id: 2, text: 'todo 2', completed: false },
-	] 
-
-	const newState = todo(oldState, Todo.toggleTodo(2));
-
-	console.log('old state: ', oldState);	
-	console.log('new state: ', newState);
-}
-
-//testCompleteAllTodos();
-
-function testCompleteAllTodos() {
-
-	const oldState = [
-		{ id: 1, text: 'todo 1', completed: false },
-		{ id: 2, text: 'todo 2', completed: false },
-	] 
-
-	const newState = todo(oldState, Todo.completeAllTodos());
-
-	console.log('old state: ', oldState);	
-	console.log('new state: ', newState);
-}
-
-//testDeleteTodo();
-
-function testDeleteTodo() {
-
-	const oldState = [
-		{ id: 1, text: 'todo 1', completed: false },
-		{ id: 2, text: 'todo 2', completed: false },
-	]
-
-	const newState = todo(oldState, Todo.deleteTodo(2));
-
-	console.log('old state: ', oldState);	
-	console.log('new state: ', newState);
-}
-
-//testDeleteCompletedTodos();
-
-function testDeleteCompletedTodos() {
-
-	const oldState = [
-		{ id: 1, text: 'todo 1', completed: false },
-		{ id: 2, text: 'todo 2', completed: true },
-		{ id: 3, text: 'todo 3', completed: false },
-		{ id: 4, text: 'todo 4', completed: true }
-	]
-
-	const newState = todo(oldState, Todo.deleteCompletedTodos());
-
-	console.log('old state: ', oldState);	
-	console.log('new state: ', newState);
-}
-
