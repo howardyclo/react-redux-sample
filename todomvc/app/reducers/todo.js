@@ -2,7 +2,7 @@
  * Specify how todo list's state changes responsed to actions.
  */
 
-import * as Todo from '../actions/todo'
+import * as Todo from '../actions/todo';
 
 /**
  * Reducer
