@@ -124,3 +124,7 @@ Many React applications have started to use javascript ES6 (also known as ES2015
 ### [Webpack](https://webpack.github.io/)
 Webpack operates on a lower level. It is a module bundler. In essence it is something that you use to build your project into deliverable components (HTML, CSS, JS). 
 It has generally replaced other build tools like grunt, gulp, etc., but you can still use then along with Webpack.
+
+### [Jest](https://facebook.github.io/jest/)
+Jest provides you with multiple layers on top of Jasmine.
+Here I use Jest to write our unit test.
