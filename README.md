@@ -3,8 +3,10 @@
 This repo contains two sample applications using **React** and **Redux**, 
 built with **Babel** and **Webpack** and tested with **Jest** :
 
-1. TodoMVC
-2. DatingApp 
+1. [TodoMVC](http://todomvc.parseapp.com/)
+2. DatingApp (Not done yet.)
+
+(Click the above project links to see demo)
 
 ## Brief introduction to the tech stack
 ### [React](http://facebook.github.io/react/index.html)
