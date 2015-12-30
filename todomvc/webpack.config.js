@@ -5,9 +5,18 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var config = {
-  entry: getEntrySources([
-    path.resolve(__dirname, 'app/index.js')
-  ]),
+  entry: {
+    app: getEntrySources([
+      path.resolve(__dirname, 'app/index.js')
+    ]),
+    vendors: [
+      'react',
+      'react-dom',
+      'react-redux',
+      'redux',
+      'classnames'
+    ]
+  },
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js'
@@ -30,7 +39,8 @@ var config = {
   plugins: [
     new ExtractTextPlugin('style.css', {
         allChunks: true
-    })
+    }),
+    new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js')
   ]
 }
 
