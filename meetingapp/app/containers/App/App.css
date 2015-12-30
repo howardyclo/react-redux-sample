@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400');
+
+html,body { 
+	margin:0; padding:0; height: 100%;
+}
+
+body { 
+	background: linear-gradient(#50a0ff, #84bcff) fixed;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.title {
+	margin-top: 50px;
+	text-align: center;
+	font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+	font-weight: 400;
+	font-size: 3.5rem;
+	color: rgba(0,0,0,0.2);
+}
+
+.container {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding: 0px 50px 0px 50px;
+}
+
+ul.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    margin: 50px 0px 50px 0px;
+}
+
+ul.navbar li {
+    float: left;
+}
+
+ul.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 12px 18px 12px 18px;
+    text-decoration: none;
+    background-color: rgba(0,0,0,0.1);
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+    font-weight: 300;
+}
+
+ul.navbar li.active a {
+	background-color: white;
+	color: rgba(0,0,0,0.8);
+}
+
+ul.navbar li:first-child a {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px; 
+}
+
+ul.navbar li:last-child a {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px; 
+}
+
+ul.navbar li a:hover {
+    background-color: rgba(0,0,0,0.2);
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+}

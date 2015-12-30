@@ -1,0 +1,26 @@
+.container {
+	padding: 15px 25px 15px 25px;
+	border-top: 1px solid rgba(0,0,0,0.1);
+	color: rgba(0,0,0,0.3);
+	font-size: 0.9rem;
+}
+
+.active {
+	color: #fc6c85;
+}
+
+.itemleft {
+	margin-right: 60px;
+}
+
+.col {
+	display: inline-block;
+}
+
+.spacing {
+	margin-right: 10px;
+}
+
+.alignright {
+	float: right;
+}
