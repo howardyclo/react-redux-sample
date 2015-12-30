@@ -34,7 +34,6 @@
 }
 
 .timetable td {
-	font-weight: 300;
 	color: white;
 	transition: opacity 0.3s;
 }

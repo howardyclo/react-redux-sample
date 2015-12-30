@@ -1,0 +1,106 @@
+.container {
+	width: 500px;
+}
+
+.hidden {
+	display: none;
+}
+
+.errorMessage {
+	margin-bottom: 20px;
+	padding: 12px;
+	background-color: rgb(243, 197, 195);
+	color: rgb(218, 87, 93);
+	border-radius: 5px;
+}
+
+.field {
+	margin-bottom: 20px;
+}
+
+.field label {
+	display: inline-block;
+	color: white;
+	margin-bottom: 10px;
+}
+
+.field input {
+	width: 100%;
+	padding: 12px;
+	border: none;
+	border-radius: 5px;
+	box-sizing: border-box;
+	background-color: white;
+	color: rgba(0,0,0,0.5);
+	font-size: 1rem;
+}
+
+.field input:focus {
+	outline: 0;
+}
+
+.field input::-webkit-input-placeholder {
+    color: rgba(0,0,0,0.2);
+}
+
+.field input:-moz-placeholder {
+    /* FF 4-18 */
+    color: rgba(0,0,0,0.2);
+}
+
+.field input::-moz-placeholder {
+    /* FF 19+ */
+    color: rgba(0,0,0,0.2);
+}
+
+.field input:-ms-input-placeholder {
+    /* IE 10+ */
+    color: rgba(0,0,0,0.2);
+}
+
+.buttonGroup {
+	margin-top: 40px;
+}
+
+.buttonGroup button {
+	margin-right: 20px;
+	border: none;
+	border-radius: 5px;
+	padding: 12px 24px 12px 24px;
+	font-size: 1rem;
+	font-weight: 300;
+}
+
+.buttonGroup button:focus {
+	outline: 0;
+}
+
+.buttonGroup button:active {
+	opacity: 0.8;
+}
+
+.buttonGroup button.login {
+	color: #50a0ff;
+	font-weight: 400;
+	background-color: white;
+	border: 2px solid white;
+	transition: all 0.3s;
+
+}
+
+.buttonGroup button.login:hover {
+	color: white;
+	background-color: rgba(0,0,0,0.8);
+}
+
+.buttonGroup button.signup {
+	color: white;
+	border: 2px solid white;
+	background-color: transparent;
+	transition: all 0.3s;
+}
+
+.buttonGroup button.signup:hover {
+	background-color: rgba(0,0,0,0.8);
+}
+
