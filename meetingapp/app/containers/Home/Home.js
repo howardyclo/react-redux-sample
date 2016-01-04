@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Timetable from '../../components/Timetable/Timetable';
+import * as TimetableActions from '../../actions/timetable';
 import classnames from 'classnames';
 import styles from './Home.css';
 
@@ -12,9 +13,25 @@ class Home extends Component {
 	}
 
 	render() {
+
+		const { dispatch, auth, timetable } = this.props;
+		const username = auth.user.get('username');
+
 		return(
 			<div className={styles.container}>
-				<Timetable />
+				<div className={styles.infobar}>
+					<img className={styles.avatar} src={require('../../img/avatar.png')}></img>
+					<span className={styles.username}>{username}</span>
+					{
+						timetable.isSetting
+						? [
+							<span key="1" className={classnames(styles.button, styles.cancel)} onClick={() => dispatch(TimetableActions.cancelSetAvailableTime())}>Cancel</span>,
+						 	<span key="2" className={classnames(styles.button, styles.save)} onClick={() => dispatch(TimetableActions.cancelSetAvailableTime())}>Save</span> 
+						  ]
+						: <span className={classnames(styles.button, styles.setAvailableTime)} onClick={() => dispatch(TimetableActions.requestSetAvailableTime())}>Set available time</span>
+					}
+				</div>
+				<Timetable {...timetable} onSetAvailableTime={(row, col) => dispatch(TimetableActions.setAvailableTime(row, col))} />
 			</div>
 		)
 	}

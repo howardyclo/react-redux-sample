@@ -1,3 +1,80 @@
 .container {
-	
+	min-width: 1000px;
 }
+
+.infobar {
+	background-color: white;
+	margin-bottom: 10px;
+	border-radius: 5px;
+  	padding: 25px;
+  	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.avatar {
+	width: 45px;
+	height: 45px;
+	vertical-align: middle;
+}
+
+.username {
+	margin-left: 25px;	
+	vertical-align: middle;
+	color: rgba(0,0,0,0.8);
+	font-weight: 400;
+}
+
+.button {
+	min-width: 80px;
+	text-align: center;
+	float: right;
+	line-height: 45px;
+	border-radius: 5px;
+	padding: 0px 12px 0px 12px;
+	font-weight: 400;
+	transition: all 0.3s;
+	margin-left: 20px;
+}
+
+.button:active {
+	opacity: 0.9;
+}
+
+.button.setAvailableTime {
+	border: 2px solid #50a0ff;
+	background-color: #edf5ff;
+	color: #50a0ff;
+	font-weight: 400;
+	transition: all 0.3s;
+}
+
+.button.setAvailableTime:hover {
+	background-color: #50a0ff;
+	color: white;
+}
+
+.button.save {
+	border: 2px solid #00dc73;
+	background-color: #e5fbf1;
+	color: #00dc73;
+	font-weight: 400;
+	transition: all 0.3s;
+}
+
+.button.save:hover {
+	background-color: #00dc73;
+	color: white;
+}
+
+.button.cancel {
+	border: 2px solid #da575d;
+	background-color: #f7ddde;
+	color: #da575d;
+	font-weight: 400;
+	transition: all 0.3s;
+}
+
+.button.cancel:hover {
+	background-color: #da575d;
+	color: white;
+}
+

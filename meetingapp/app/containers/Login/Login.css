@@ -10,8 +10,8 @@
 .errorMessage {
 	margin-bottom: 20px;
 	padding: 12px;
-	background-color: rgb(243, 197, 195);
-	color: rgb(218, 87, 93);
+	background-color: #f7ddde;
+	color: #da575d;
 	border-radius: 5px;
 }
 

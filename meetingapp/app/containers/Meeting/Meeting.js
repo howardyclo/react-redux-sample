@@ -26,7 +26,7 @@ class Meeting extends Component {
 			<div className={styles.container}>
 
 				<div className={styles.infobar}>
-					<img className={styles.avatar} src={require('./avatar.png')}></img>
+					<img className={styles.avatar} src={require('../../img/avatar.png')}></img>
 					<span className={styles.username}>Howard</span>
 					<span className={styles.button} onClick={(e) => this.handleToggle()}>Set up a meeting</span>
 				</div>

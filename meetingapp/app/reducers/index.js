@@ -6,8 +6,9 @@
 import { combineReducers } from 'redux';
 import { routeReducer } from 'redux-simple-router';
 import auth from './auth';
+import timetable from './timetable';
 
-const reducers = { auth };
+const reducers = { auth, timetable };
 
 const rootReducer = combineReducers(Object.assign({}, reducers, {
 	routing: routeReducer
