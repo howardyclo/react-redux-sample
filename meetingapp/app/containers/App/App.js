@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import * as TodoActions from '../../actions/todo';
-import * as VisibilityFilterActions from '../../actions/visibility-filter';
 import Timetable from '../../components/Timetable/Timetable';
 import classnames from 'classnames';
 import styles from './App.css';
+import { logoutAndRedirect } from '../../actions/auth';
 
 class App extends Component {
 
 	constructor(props) {
 		super(props);
+		console.log('[App] props', props);
 	}
 
 	render() {
 
 		/* Injected by connect() call */
-    	const { dispatch, activeCount, todos, visibilityFilter } = this.props
+    	const { dispatch, auth } = this.props;
 
 		return (
 			<div className={styles.container}>
@@ -25,36 +25,30 @@ class App extends Component {
 					Meeting App
 				</div>
 
-				{/* Route links */}
+				{/* Routes */}
 				<ul className={styles.navbar}>
-		          <li className={classnames()}><Link to="/login">Log in</Link></li>
-		          <li><Link to="/make-appointment">Set up a meeting</Link></li>
+					{
+						auth.user 
+						? (<li className={styles.logout}><a href='#' onClick={() => dispatch(logoutAndRedirect())}>Log out</a></li>)
+						: null
+					}
+					<li className={styles.first}> 
+					{
+						auth.user 
+						? <Link activeClassName={styles.active} to="/home">Home</Link>
+						: <Link activeClassName={styles.active} to="/login">Log in</Link>
+					}
+					</li>
+					<li className={styles.last}>
+						<Link activeClassName={styles.active} to="/meeting">Set up a meeting</Link>
+					</li>
 		        </ul>
 
 		    	{ /* Work with React Router */ }
 		        {this.props.children}
-
 			</div>
 		);
 	}
-}
-
-function filterTodos(todos, filter) {
-
-  	switch (filter) {
-
-	case VisibilityFilterActions.VisibilityFilter.SHOW_ALL_TODOS:
-		return todos;
-
-	case VisibilityFilterActions.VisibilityFilter.SHOW_COMPLETED_TODOS:
-		return todos.filter(todo => todo.completed);
-
-	case VisibilityFilterActions.VisibilityFilter.SHOW_UNCOMPLETED_TODOS:
-		return todos.filter(todo => !todo.completed);
-
-	default:
-		return todos;
-  	}
 }
 
 /**
@@ -63,16 +57,9 @@ function filterTodos(todos, filter) {
  * It will be invoked when dispatch() is called.
  * Note: use https://github.com/faassen/reselect for better performance.
  */
-function select(state) {
-
-	console.log(state);
-
-	return {
-		activeCount: state.todos.reduce((count, todo) => !todo.completed ? count + 1 : count, 0),
-		todos: filterTodos(state.todos, state.visibilityFilter),
-		visibilityFilter: state.visibilityFilter
-	}
+const mapStateToProps = (state) => {
+	return state;
 }
 
 /* Wrap the component to inject dispatch and state into it */
-export default connect(select)(App)
+export default connect(mapStateToProps)(App)

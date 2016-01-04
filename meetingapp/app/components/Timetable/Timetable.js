@@ -67,7 +67,7 @@ export default class Timetable extends Component {
 		/* props */
 		const { days } = this.props;
 
-		return (	
+		return (
 			<table className={styles.timetable}>
 				<thead>
 					<tr>

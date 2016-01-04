@@ -33,7 +33,9 @@
     "react-dom": "^0.14.3",
     "react-redux": "^4.0.3",
     "react-router": "^1.0.3",
-    "redux": "^3.0.5"
+    "redux": "^3.0.5",
+    "redux-simple-router": "^1.0.2",
+    "redux-thunk": "^1.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.3.21",
@@ -45,22 +47,28 @@
     "babel-preset-stage-0": "^6.3.13",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^0.9.1",
+    "file-loader": "^0.8.5",
     "jest-cli": "^0.8.2",
     "jsx-loader": "^0.13.2",
     "react-addons-test-utils": "^0.14.3",
+    "redux-mock-store": "0.0.4",
     "style-loader": "^0.13.0",
+    "url-loader": "^0.5.7",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
     "unmockedModulePathPatterns": [
-      "<rootDir>/node_modules/react",
-      "<rootDir>/node_modules/react-dom",
-      "<rootDir>/node_modules/react-addons-test-utils"
+      "node_modules/react",
+      "node_modules/react-dom",
+      "node_modules/react-addons-test-utils",
+      "node_modules/fbjs",
+      "node_modules/parse"
     ],
     "modulePathIgnorePatterns": [
       "<rootDir>/node_modules/"
-    ]
+    ],
+    "testRunner": "<rootDir>/node_modules/jest-cli/src/testRunners/jasmine/jasmine2.js"
   }
 }

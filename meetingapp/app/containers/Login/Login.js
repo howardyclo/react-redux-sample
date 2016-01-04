@@ -1,17 +1,39 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { pushPath } from 'redux-simple-router';
 import classnames from 'classnames';
 import styles from './Login.css';
+import * as AuthActions from '../../actions/auth';
 
-export default class Login extends Component {
+class Login extends Component {
 
 	constructor(props) {
 		super(props);
+
+		console.log('[Login] props', props);
 
 		this.state = {
 			username: '',
 			password: '',
 			errorMessage: ''
 		}
+	}
+
+	/* Redirect path if authenticated */
+	componentWillMount() {
+		
+		const { dispatch, auth } = this.props;
+
+		if (auth.user)
+			dispatch(pushPath('/home'));
+	}
+
+	/* Update UI state from store's state tree when action is dispatched and receive next props */
+	componentWillReceiveProps(nextProps) {
+
+		this.setState({
+			errorMessage: nextProps.auth.errorMessage
+		})
 	}
 
 	handleChange = (e, field) => {
@@ -30,17 +52,27 @@ export default class Login extends Component {
 
 	handleSubmit = (e, actionType) => {
 
+		const { dispatch, location } = this.props;
+		const redirect = location.query.redirectAfterLogin || '/home';
+
+		if (this.state.username === '') 
+			return this.setState({ errorMessage: 'Username is required !' });
+
+		if (this.state.password === '') 
+			return this.setState({ errorMessage: 'Password is required !' });
+
 		switch(actionType) {
 		case 'login':
-			console.log(actionType, this.state);
+			dispatch(AuthActions.login(this.state.username, this.state.password, redirect));
 			break;
 		case 'signup':
-			console.log(actionType, this.state);
+			dispatch(AuthActions.signup(this.state.username, this.state.password, redirect));
 			break;
 		}
 	}
 
 	render() {
+
 		return (
 			<div className={styles.container}>
 				
@@ -78,3 +110,17 @@ export default class Login extends Component {
 		)
 	}
 }
+
+/**
+ * Which props do we want to inject, given the global state we defined in root reducer 
+ * (or state combined in store) ?
+ * It will be invoked when dispatch() is called.
+ * Note: use https://github.com/faassen/reselect for better performance.
+ */
+const mapStateToProps = (state) => {
+
+	return state;
+}
+
+/* Wrap the component to inject dispatch and state into it */
+export default connect(mapStateToProps)(Login);

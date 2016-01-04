@@ -1,18 +1,19 @@
 .timetable {
 	width: 100%;
+	min-width: 1000px;
 	table-layout: fixed;
     text-align: center;
     background-color: white;
     border-radius: 5px;
     margin: 0 auto;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  	transition: all 0.2s ease-in-out;
   	padding: 2px;
   	color: rgba(0,0,0,0.8);
+  	transition: all 0.2s ease-in-out;
 }
 
 .timetable:hover {
-	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 8px rgba(0,0,0,0.24);
+	box-shadow: 0 10px 3px rgba(0,0,0,0.12), 0 1px 8px rgba(0,0,0,0.24);
 }
 
 .timetable thead th {
@@ -34,18 +35,20 @@
 }
 
 .timetable td {
+	transition: all 0.3s;
+}
+
+.timetable td.unavailable:hover {
+	background-color: #dcdcdc;
 	color: white;
-	transition: opacity 0.3s;
-}
-
-.timetable td:hover {
-	opacity: 0.6;
-}
-
-.available {
-	background-color: #00dc73;
 }
 
 .unavailable {
-	background-color: #dc0069;
+	background-color: #f5f5f5;
+	color: rgba(0,0,0,0.8);
+}
+
+.available {
+	background-color: #50a0ff;
+	color: white;
 }

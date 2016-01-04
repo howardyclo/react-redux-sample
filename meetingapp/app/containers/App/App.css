@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400');
 
 html,body { 
-	margin:0; padding:0; height: 100%;
+	margin:0; 
+	padding:0; 
+	height: 100%;
+	min-height: 100%;
 }
 
 body { 
@@ -26,6 +29,7 @@ body {
 }
 
 ul.navbar {
+	min-width: 500px;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -48,17 +52,17 @@ ul.navbar li a {
     font-weight: 300;
 }
 
-ul.navbar li.active a {
-	background-color: white;
-	color: rgba(0,0,0,0.8);
+ul.navbar li a.active {
+	background-color: rgba(0,0,0,0.2);
+    border-bottom: 2px solid rgba(0,0,0,0.2);
 }
 
-ul.navbar li:first-child a {
+ul.navbar li.first a {
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px; 
 }
 
-ul.navbar li:last-child a {
+ul.navbar li.last a {
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px; 
 }
@@ -67,3 +71,16 @@ ul.navbar li a:hover {
     background-color: rgba(0,0,0,0.2);
     border-bottom: 2px solid rgba(0,0,0,0.2);
 }
+
+ul.navbar li.logout a {
+	color: rgb(218, 87, 93);
+	background-color: white;
+	border-radius: 5px;
+	margin-right: 20px;
+}
+
+ul.navbar li.logout a:hover {
+	background-color: #fcfcfc;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
+}
+

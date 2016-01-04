@@ -15,6 +15,8 @@ var config = {
       'react-dom',
       'react-redux',
       'react-router',
+      'redux-simple-router',
+      'redux-thunk',
       'classnames',
       'parse'
     ]
@@ -35,6 +37,10 @@ var config = {
       { 
         test: /\.css$/, 
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]') 
+      },
+      {
+        test: /\.(png|jpg)$/ ,
+        loader: 'url?limit=25000'
       }
     ]
   },

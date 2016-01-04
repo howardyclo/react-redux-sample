@@ -17,10 +17,15 @@
 	More information about import syntax from stackoverflow : 
 	http://stackoverflow.com/questions/31096597/using-brackets-with-javascript-import-syntax
  */ 
-import { createStore } from 'redux'
-import rootReducer from '../reducers/'
+import { createStore, applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import rootReducer from '../reducers/';
 
-var store = createStore(rootReducer /*, initial state from client or server */);
+const createStoreWithMiddleware = applyMiddleware(
+	thunkMiddleware
+)(createStore);
 
-export default store
+const store = createStoreWithMiddleware(rootReducer /*, initial state from client or server */);
+
+export default store;
 

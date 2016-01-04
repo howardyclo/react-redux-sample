@@ -3,25 +3,14 @@
  * Calls the reducers managing parts of the state, and combines them into a single state object. 
  */
 
-import { combineReducers } from 'redux'
-import todo from './todo'
-import visibilityFilter from './visibility-filter'
+import { combineReducers } from 'redux';
+import { routeReducer } from 'redux-simple-router';
+import auth from './auth';
 
-var rootReducer = combineReducers({
-  todos: todo,
-  visibilityFilter
-})
+const reducers = { auth };
 
-export default rootReducer
+const rootReducer = combineReducers(Object.assign({}, reducers, {
+	routing: routeReducer
+}));
 
-/**
- * 	The above code is completely equivalent to :
- 
-  	export default function app (state = {}, action) {
-		return {
-			todos: todo(state.todos, action),
-			visibilityFilter: visibilityFilter(state.filter, action)
-		}
-	}
- */
-	
+export default rootReducer;

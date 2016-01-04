@@ -1,0 +1,10 @@
+.container {}
+
+.title {
+	margin-top: 50px;
+	text-align: center;
+	font-family: 'Roboto Slab', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+	font-weight: 400;
+	font-size: 3.5rem;
+	color: rgba(0,0,0,0.2);
+}
