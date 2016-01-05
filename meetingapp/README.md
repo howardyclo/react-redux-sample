@@ -1,7 +1,7 @@
 # [MeetingApp](http://meetingapp.parseapp.com/)
 
 ## User story
-Setting up a meeting with someone always bothers me. 
+A and B would like to meet up with each other, but they don't know each other's available time. This app simply shows others' available time which is your available time, too.
 
 ## Features
 * Asyncronized actions
