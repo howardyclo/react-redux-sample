@@ -12,6 +12,14 @@ class Home extends Component {
 		console.log('[Home] props', props);
 	}
 
+	componentDidMount() {
+
+		const { dispatch, routing } = this.props;
+
+		if (routing.state != 'signup')
+			dispatch(TimetableActions.fetchTimetable());
+	}
+
 	render() {
 
 		const { dispatch, auth, timetable } = this.props;
@@ -26,7 +34,7 @@ class Home extends Component {
 						timetable.isSetting
 						? [
 							<span key="1" className={classnames(styles.button, styles.cancel)} onClick={() => dispatch(TimetableActions.cancelSetAvailableTime())}>Cancel</span>,
-						 	<span key="2" className={classnames(styles.button, styles.save)} onClick={() => dispatch(TimetableActions.cancelSetAvailableTime())}>Save</span> 
+						 	<span key="2" className={classnames(styles.button, styles.save)} onClick={() => dispatch(TimetableActions.saveTimetable())}>Save</span> 
 						  ]
 						: <span className={classnames(styles.button, styles.setAvailableTime)} onClick={() => dispatch(TimetableActions.requestSetAvailableTime())}>Set available time</span>
 					}

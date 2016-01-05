@@ -55,6 +55,6 @@ export default function auth(state = initialState, action) {
 		});
 
 	default:
-		return state;
+		return Object.assign({}, state);
 	}
 }

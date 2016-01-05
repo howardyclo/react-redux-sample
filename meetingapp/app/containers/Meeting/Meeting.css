@@ -45,6 +45,7 @@
 }
 
 .slider {
+	margin-bottom: 20px;
 	max-height: 0;
 	overflow: hidden;
 	transform: scaleY(0);

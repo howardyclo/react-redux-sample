@@ -6,6 +6,7 @@
  */
 
 import Parse from '../modules/parse/index';
+import * as TimetableActions from '../actions/timetable';
 import { pushPath } from 'redux-simple-router';
 
 export const SIGNUP_REQUEST = 'SIGNUP_REQUEST';
@@ -35,7 +36,7 @@ export function signupError(error) {
 /* Here is where we should put our network request. */
 export function signup(username, password, redirect = '/') {
 
-	var user = new Parse.User();
+	let user = new Parse.User();
 
 	user.set('username', username);
 	user.set('password', password);
@@ -53,7 +54,8 @@ export function signup(username, password, redirect = '/') {
 		return user.signUp(null, {
 			success: function(user) {
 				dispatch(signupSuccess(user));
-				dispatch(pushPath(redirect));
+				dispatch(TimetableActions.createTimetable());
+				dispatch(pushPath(redirect, 'signup'));
 			},
 			error: function(user, error) {
 				dispatch(signupError(error));

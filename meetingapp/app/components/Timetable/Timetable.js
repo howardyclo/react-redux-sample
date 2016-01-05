@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import * as TimetableActions from '../../actions/timetable';
 import classnames from 'classnames';
 import styles from './Timetable.css';
 
@@ -8,25 +7,36 @@ export default class Timetable extends Component {
 	/* we can init state here */
 	constructor(props) {
 		super(props);
-		console.log(props);
 	}
 
 	handleSetAvailableTime = (row, col) => {
-			
+		
 		const { isSetting, onSetAvailableTime } = this.props;
 
 		if (isSetting)
 			onSetAvailableTime(row, col);
 	}
 
+	getCellString = (matched, available) => {
+
+		if (matched)
+			return 'Matched';
+
+		else if (available)
+			return 'Available';
+		else
+			return 'Unavailable';
+	}
+
 	render() {
 
-		/* props */
-		const { days, timetable, settable } = this.props;
+		const { days, timetable, isSetting, timetableToBeCompared } = this.props;
+
+		console.log(timetableToBeCompared);
 
 		return (
 			<table className={classnames(styles.timetable, {
-				[`${styles.settable}`]: settable
+				[`${styles.settable}`]: isSetting
 			})}>
 				<thead>
 					<tr>
@@ -40,18 +50,28 @@ export default class Timetable extends Component {
 					{timetable.map((row, rowIndex) => 
 						<tr key={rowIndex}>
 				        	<th>{`${row.start}:00 - ${row.end}:00`}</th>
-				        	{row.cells.map((cell, colIndex) => (
-				        		<td className={classnames(
-				        				{
-				        					[`${styles.available}`]: cell.available,
-				        					[`${styles.unavailable}`]: !cell.available,
-				        				}
-				        			)} 
-				        			onClick={(e) => this.handleSetAvailableTime(rowIndex, colIndex) }
-				        			key={colIndex}>
-				        			{ (cell.available) ? 'Available' : 'Unavailable' }
-				        		</td>
-				        	))}
+				        	{row.cells.map((cell, colIndex) => {
+
+				        		let matched = false;
+
+				        		if (timetableToBeCompared !== undefined)
+					        		if (cell.available && timetableToBeCompared[rowIndex].cells[colIndex].available)
+					        			matched = true;
+
+				        		return (
+					        		<td className={classnames(
+					        				{
+					        					[`${styles.available}`]: cell.available,
+					        					[`${styles.unavailable}`]: !cell.available,
+					        					[`${styles.matched}`]: matched
+					        				}
+					        			)} 
+					        			onClick={(e) => this.handleSetAvailableTime(rowIndex, colIndex) }
+					        			key={colIndex}>
+					        			{ this.getCellString(matched, cell.available) }
+					        		</td>
+					        	)
+				        	})}
 				        </tr>
 					)}
 			    </tbody>
@@ -65,8 +85,7 @@ Timetable.defaultProps = {
 	start: 10,
 	end: 18,
 	diff: 1,
-	timetable: initTimetable(),
-	settable: true
+	timetable: initTimetable()
 }
 
 Timetable.propTypes = {
@@ -81,7 +100,6 @@ Timetable.propTypes = {
 			start: PropTypes.number, // start hour
 			end: PropTypes.number	 // start hour + diff
 	})),
-	settable: PropTypes.bool, // if true, timetable is able to set available time
 	onSetAvailableTime: PropTypes.func
 }
 

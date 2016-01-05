@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Timetable from '../../components/Timetable/Timetable';
+import * as TimetableActions from '../../actions/timetable';
 import classnames from 'classnames';
 import styles from './App.css';
 import { logoutAndRedirect } from '../../actions/auth';
@@ -11,6 +12,23 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		console.log('[App] props', props);
+	}
+
+	onLogOut = () => {
+
+		const { dispatch } = this.props;
+
+		/* Redirect and reset timetable state */
+		dispatch(logoutAndRedirect());
+		dispatch(TimetableActions.resetTimetable());
+	}
+
+	componentDidMount() {
+
+		const { dispatch, auth } = this.props;
+
+		if (auth.user)
+			dispatch(TimetableActions.fetchTimetable());
 	}
 
 	render() {
@@ -29,7 +47,7 @@ class App extends Component {
 				<ul className={styles.navbar}>
 					{
 						auth.user 
-						? (<li className={styles.logout}><a href='#' onClick={() => dispatch(logoutAndRedirect())}>Log out</a></li>)
+						? (<li className={styles.logout}><a href='#' onClick={() => this.onLogOut()}>Log out</a></li>)
 						: null
 					}
 					<li className={styles.first}> 

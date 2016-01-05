@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Timetable from '../../components/Timetable/Timetable';
+import * as TimetableActions from '../../actions/timetable';
 import classnames from 'classnames';
 import styles from './Meeting.css';
 
@@ -14,29 +15,42 @@ class Meeting extends Component {
 		}
 	}
 
-	handleToggle = () => {
+	componentDidMount() {
 
-		this.setState({
-			visibility: !this.state.visibility
-		});
+		const { dispatch } = this.props;
+		dispatch(TimetableActions.fetchOthersTimetables());
+	}
+
+	componentWillUnmount() {
+
+		const { dispatch } = this.props;
+		dispatch(TimetableActions.resetOthersTimetableVisibility());
 	}
 
 	render() {
+
+		const { dispatch } = this.props;
+		const { timetable, othersTimetables } = this.props.timetable;
+
 		return(
 			<div className={styles.container}>
-
-				<div className={styles.infobar}>
-					<img className={styles.avatar} src={require('../../img/avatar.png')}></img>
-					<span className={styles.username}>Howard</span>
-					<span className={styles.button} onClick={(e) => this.handleToggle()}>Set up a meeting</span>
-				</div>
-
-				<div className={classnames(styles.slider, {
-					[`${styles.visible}`]: this.state.visibility
-				})}>
-					<Timetable />
-				</div>
-
+				{
+					othersTimetables.map((othersTimetable, index) => 
+						[
+							<div className={styles.infobar}>
+								<img className={styles.avatar} src={require('../../img/avatar.png')}></img>
+								<span className={styles.username}>{othersTimetable.username}</span>
+								<span className={styles.button} onClick={(e) => dispatch(TimetableActions.toggleOthersTimetable(index))}>Check out timetable</span>
+							</div>
+							,
+							<div className={classnames(styles.slider, {
+								[`${styles.visible}`]: othersTimetable.visibility
+							})}>
+								<Timetable {...othersTimetable} timetableToBeCompared={timetable} />
+							</div>
+						]
+					)
+				}
 			</div>
 		)
 	}
