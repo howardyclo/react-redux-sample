@@ -1,4 +1,4 @@
 export default {
-	PARSE_APP_ID: 'BDTpem5piXI5btT6IEokDSgKXSpuXrMhNgsphPg4',
-    PARSE_JS_KEY: 'kFNq23NewwNncL0u2xmEayiwqDxV1twbFoSpz7Np'
+	PARSE_APP_ID: 'vpNdKRT27czZ0UyJJ0I3sDHbXKIWiLxY767wjMzn',
+    PARSE_JS_KEY: 'SeiC7y9aveYViNvWknpgp4q55AoRsXYuVMzUmaKY'
 }

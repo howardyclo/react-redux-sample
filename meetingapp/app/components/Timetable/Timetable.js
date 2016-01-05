@@ -32,8 +32,6 @@ export default class Timetable extends Component {
 
 		const { days, timetable, isSetting, timetableToBeCompared } = this.props;
 
-		console.log(timetableToBeCompared);
-
 		return (
 			<table className={classnames(styles.timetable, {
 				[`${styles.settable}`]: isSetting

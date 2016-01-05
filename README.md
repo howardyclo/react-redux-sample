@@ -3,8 +3,8 @@
 This repo contains two sample applications using **React** and **Redux**, 
 built with **Babel** and **Webpack** and tested with **Jest** :
 
-1. [TodoMVC](http://todomvc.parseapp.com/)
-2. DatingApp (Not done yet.)
+1. [TodoMVC](http://todomvc.parseapp.com/) (Basic, no async actions)
+2. [MeetingApp](http://meetingapp.parseapp.com/) (Advanced, contains async actions, routings, authentication flow and so on)
 
 (Click the above project links to see demo)
 
