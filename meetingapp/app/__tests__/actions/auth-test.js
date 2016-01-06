@@ -180,7 +180,10 @@ describe('auth actions', () => {
 	})
 })
 
-
+/**
+ * Further more information:
+ * http://stackoverflow.com/questions/16558844/testing-an-ajax-api-that-uses-session-authentication-with-jasmine
+ */
 
 
 

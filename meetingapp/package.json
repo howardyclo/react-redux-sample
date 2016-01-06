@@ -58,6 +58,7 @@
     "webpack-dev-server": "^1.14.0"
   },
   "jest": {
+    "testDirectoryName": "__tests__",
     "setupEnvScriptFile": "<rootDir>/app/modules/jest_env_scripts/env.js",
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
     "unmockedModulePathPatterns": [

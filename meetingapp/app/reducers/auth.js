@@ -49,7 +49,10 @@ export default function auth(state = initialState, action) {
 
 	case Auth.LOGOUT:
 		console.log('logout');
-		Parse.User.logOut();
+
+		if (Parse.User.current())
+			Parse.User.logOut();
+		
 		return Object.assign({}, state, {
 			user: null
 		});

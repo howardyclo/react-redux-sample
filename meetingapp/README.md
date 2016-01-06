@@ -5,11 +5,12 @@ A and B would like to meet up with each other, but they don't know each other's 
 
 ## Features
 * Asyncronized actions, using React Thunk Middleware
+* Async Action creators unit test
 * Routings built with React Router for routes and Redux Simple Router for transitions
 * Handle public and private views, based on  [**Higher Older Component**](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750) implementation
 * Authentication flow : sign up, login, logout
 * Use [**Parse**](https://www.parse.com/) as backend
-* Beautiful UI
+* Beautiful UI (lol)
 
 ## Project structure
 ```
