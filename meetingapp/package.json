@@ -51,7 +51,6 @@
     "jest-cli": "^0.8.2",
     "jsx-loader": "^0.13.2",
     "react-addons-test-utils": "^0.14.3",
-    "redux-mock-store": "0.0.4",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.9",
