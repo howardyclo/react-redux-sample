@@ -157,7 +157,7 @@ export function saveTimetable() {
 		const state = getState();
 		const timetableParseObject = state.timetable.timetableParseObject;
 		const timetableData = state.timetable.timetable;
-
+		
 		timetableParseObject.set('data', JSON.stringify(timetableData));
 
 		dispatch(saveTimetableRequest());
@@ -211,6 +211,7 @@ export function fetchOthersTimetables() {
 
 	let query = new Parse.Query(Timetable);
 	query.notEqualTo('user', Parse.User.current());
+	query.notEqualTo('user', null);
 	query.include('user');
 
 	return (dispatch, getState) => {
