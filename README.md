@@ -10,7 +10,7 @@ built with **Babel** and **Webpack** and tested with **Jest** :
 
 ## Brief introduction to the tech stack
 ### [React](http://facebook.github.io/react/index.html)
-React is a javascript frontend framework supported by Facebook.
+React is a javascript frontend library supported by Facebook.
 <br>
 In contrast to any other MVC frontend frameworks, such as Angular,
 <br>
