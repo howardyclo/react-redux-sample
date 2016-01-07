@@ -210,10 +210,9 @@ export function fetchOthersTimetables() {
 	const Timetable = new Parse.Object.extend('Timetable');
 
 	let query = new Parse.Query(Timetable);
-	query.notEqualTo('user', Parse.User.current());
-	query.notEqualTo('user', null);
 	query.include('user');
-
+	query.notContainedIn('user', [null, Parse.User.current()]);
+	
 	return (dispatch, getState) => {
 
 		dispatch(fetchOthersTimetablesRequest());
