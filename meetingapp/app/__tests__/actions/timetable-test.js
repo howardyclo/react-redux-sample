@@ -74,10 +74,6 @@ function configureMockStore(middlewares = []) {
 			}
 		}
 
-		function clearExpectedActions() {
-			expectedActions = [];
-		}
-
 		const mockStoreWithMiddleware = applyMiddleware(
 			...middlewares
 		)(mockStoreWithoutMiddleware);
